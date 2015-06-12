@@ -1,18 +1,46 @@
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+
+/**
+ * @author impadmin
+ * This class compares objects of Developer class
+ */
+class Comp implements Comparator<Developer>
+{
+	int temp=0;
+	Comp(int x)
+	{
+		temp=x;
+	}
+	@Override
+	public int compare(Developer a, Developer b) {
+		// TODO Auto-generated method stub
+		if(temp==0)
+			return (a.name).compareToIgnoreCase(b.name);
+		else
+			return a.age.compareTo(b.age);
+	}
+}
 
 /**
  * @author impadmin
  * This class adds the names and ages of the Developer to LinkedList and also
- * provides methods to sort the Developer info by name or age.
+ * provides methods to sort the Developers info by name or age.
  */
 class Developer implements EmployeeInterface
 {
 	Scanner sc=new Scanner(System.in);
 	String name;
-	int age;
+	Integer age;
 	static int dev_count=0;
 	static List<String> listName=new LinkedList<String>();
 	static List<Integer> listAge=new LinkedList<Integer>();
+	static List<Developer> listObject=new LinkedList<Developer>();
+	
 	@Override
 	public void insert(String a, int b) {
 		// TODO Auto-generated method stub
@@ -26,28 +54,13 @@ class Developer implements EmployeeInterface
 	public void sort_name() {
 		// TODO Auto-generated method stub
 		int temp=0;
-		for(int i=0;i<listName.size()-1;i++)
-		   {
-		   		for(int j=i+1;j<listName.size();j++)
-		   		{
-		   			if((listName.get(i)).compareToIgnoreCase(listName.get(j))>0)
-		   			{
-		   				listName.add(listName.get(i));
-		   				listName.set(i, listName.get(j));
-		   				listName.set(j, listName.get(listName.size()-1));
-		   				listName.remove(listName.size()-1);
-		   				
-		   				listAge.add(listAge.get(i));
-		   				listAge.set(i, listAge.get(j));
-		   				listAge.set(j, listAge.get(listAge.size()-1));
-		   				listAge.remove(listAge.size()-1);
-		   			}
-		   		}
-		   }
-		for(int i=0;i<listName.size();i++)
+	
+		Collections.sort(listObject, new Comp(0));
+		
+		for(int i=0;i<listObject.size();i++)
 		{
 			temp=1;
-			System.out.println(listName.get(i)+" : "+listAge.get(i));
+			System.out.println(listObject.get(i).name+" : "+listObject.get(i).age);
 		}
 		if(temp==0)
 		{
@@ -59,28 +72,11 @@ class Developer implements EmployeeInterface
 	public void sort_age() {
 		// TODO Auto-generated method stub
 		int temp=0;
-		for(int i=0;i<listAge.size()-1;i++)
-		   {
-		   		for(int j=i+1;j<listAge.size();j++)
-		   		{
-		   			if((listAge.get(i))>(listAge.get(j)))
-		   			{
-		   				listName.add(listName.get(i));
-		   				listName.set(i, listName.get(j));
-		   				listName.set(j, listName.get(listName.size()-1));
-		   				listName.remove(listName.size()-1);
-		   				
-		   				listAge.add(listAge.get(i));
-		   				listAge.set(i, listAge.get(j));
-		   				listAge.set(j, listAge.get(listAge.size()-1));
-		   				listAge.remove(listAge.size()-1);
-		   			}
-		   		}
-		   }
-		for(int i=0;i<listAge.size();i++)
+		Collections.sort(listObject, new Comp(1));
+		for(int i=0;i<listObject.size();i++)
 		{
 			temp=1;
-			System.out.println(listName.get(i)+" : "+listAge.get(i));
+			System.out.println(listObject.get(i).name+" : "+listObject.get(i).age);
 		}
 		if(temp==0)
 		{
