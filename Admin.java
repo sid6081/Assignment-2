@@ -28,13 +28,12 @@ public class Admin implements EmployeeInterface{
 		String del_name="";
 		System.out.println("Enter the name of the developer to fire : ");
 		del_name=sc.nextLine().toLowerCase();
-		for(int i=0;i<Developer.listName.size();i++)
+		for(int i=0;i<Developer.listObject.size();i++)
 		{
-			if(Developer.listName.get(i).equals(del_name))
+			if((Developer.listObject.get(i).name).equals(del_name))
 			{
 				foundFlag=1;
-				Developer.listName.remove(i);
-				Developer.listAge.remove(i);
+				Developer.listObject.remove(i);
 			}
 		}
 		if(foundFlag==0)
