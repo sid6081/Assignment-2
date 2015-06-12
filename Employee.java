@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author impadmin
@@ -35,6 +33,7 @@ public class Employee {
 								name=sc1.nextLine();
 								age=sc.nextInt();
 								adminObject.insert(name, age);
+								
 								}
 								else
 								{
@@ -63,7 +62,9 @@ public class Employee {
 							case 1:System.out.println("Enter Name and Age :");
 								name=sc1.nextLine();
 								age=sc.nextInt();
+								devObject=new Developer();
 								devObject.insert(name, age);
+								Developer.listObject.add(devObject);
 								break;
 							case 2:
 									devObject.sort_name();
@@ -79,4 +80,3 @@ public class Employee {
 		}
 	}
 }
-
