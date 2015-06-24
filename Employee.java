@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * @author impadmin
@@ -45,7 +47,7 @@ public class Employee {
 									System.out.println("No admin exists.");
 									break;
 									}
-									if(Developer.listName.size()<=0)
+									if(Developer.listObject.size()<=0)
 									{
 										System.out.println("No Developers currently employed.");
 									}
@@ -67,9 +69,9 @@ public class Employee {
 								Developer.listObject.add(devObject);
 								break;
 							case 2:
-									devObject.sort_name();
+									devObject.sortName();
 									break;
-							case 3:devObject.sort_age();
+							case 3:devObject.sortAge();
 									break;
 						}
 						break;
@@ -80,3 +82,4 @@ public class Employee {
 		}
 	}
 }
+
