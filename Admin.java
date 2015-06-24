@@ -22,36 +22,40 @@ public class Admin implements EmployeeInterface{
 			return;
 		}
 	}
+	/**
+	 * Deletes a Developer object from List 
+	 */
 	void deleteDeveloper()
 	{
 		int foundFlag=0;
-		String del_name="";
+		String delName="";
 		System.out.println("Enter the name of the developer to fire : ");
-		del_name=sc.nextLine().toLowerCase();
+		delName=sc.nextLine().toLowerCase();
 		for(int i=0;i<Developer.listObject.size();i++)
 		{
-			if((Developer.listObject.get(i).name).equals(del_name))
+			if((Developer.listObject.get(i).name).equals(delName))
 			{
 				foundFlag=1;
 				Developer.listObject.remove(i);
+				//Developer.listAge.remove(i);
 			}
 		}
 		if(foundFlag==0)
 		{
-			System.out.println("Developer "+del_name+" not found");
+			System.out.println("Developer "+delName+" not found");
 		}
 		else
 		{
-			System.out.println("Developer "+del_name+" removed");
+			System.out.println("Developer "+delName+" removed");
 		}
 	}
 	@Override
-	public void sort_name() {
+	public void sortName() {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void sort_age() {
+	public void sortAge() {
 		// TODO Auto-generated method stub
 		
 	}
