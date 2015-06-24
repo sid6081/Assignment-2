@@ -1,6 +1,6 @@
-public interface EmployeeInterface
+interface EmployeeInterface
 {
 	void insert(String a,int b);
-	void sort_name();
-	void sort_age();
+	void sortName();
+	void sortAge();
 }
